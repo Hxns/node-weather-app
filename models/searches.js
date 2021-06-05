@@ -83,6 +83,21 @@ class Searches {
 
     }
 
+    addRecord( place = '' ) {
+
+        if( this.record.includes( place.toLocaleLowerCase() ) ){
+            return;
+        }
+        this.record = this.record.splice(0,5);
+
+        this.record.unshift( place.toLocaleLowerCase() );
+
+        // Save in DB
+        this.saveDB();
+    }
+
+
+
 
 
 }
