@@ -94,6 +94,15 @@ class Searches {
 
         // Save in DB
         this.saveDB();
+
+    }
+
+    saveDB() {
+        const payload = {
+            record=this.record
+        };
+
+        fs.writeFileSync( this.dbPath, JSON.stringify(payload) );
     }
 
 
