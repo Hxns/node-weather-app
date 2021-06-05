@@ -100,3 +100,29 @@ const listPlaces = async( places = [] ) => {
     const { id } = await inquirer.prompt(questions);
     return id;
 }
+
+const showChecklist = async( tasks = [] ) => {
+
+    const choices = tasks.map( (task, i) => {
+
+        const idx = `${i + 1}.`.green;
+
+        return {
+            value: task.id,
+            name:  `${ idx } ${ task.desc }`,
+            checked: ( task.completedIn ) ? true : false
+        }
+    });
+
+    const questions = [
+        {
+            type: 'checkbox',
+            name: 'ids',
+            message: 'Selections',
+            choices
+        }
+    ]
+
+    const { ids } = await inquirer.prompt(questions);
+    return ids;
+}
