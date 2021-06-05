@@ -24,3 +24,29 @@ const questions = [
 
     }
 ];
+
+const inquirerMenu = async() => {
+
+    console.clear();
+    console.log('=========================='.green);
+    console.log('  Select an option'.white );
+    console.log('==========================\n'.green);
+
+    const { option } = await inquirer.prompt(questions);
+
+    return option;
+}
+
+const pause = async() => {
+    
+    const question = [
+        {
+            type: 'input',
+            name: 'enter',
+            message: `Press ${ 'enter'.green } to continue`
+        }
+    ];
+
+    console.log('\n');
+    await inquirer.prompt(question);
+}
