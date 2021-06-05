@@ -146,5 +146,6 @@ module.exports = {
     pause,
     ReadInput,
     listPlaces,
-    co
+    confirm,
+    showChecklist
 }
