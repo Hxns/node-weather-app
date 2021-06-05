@@ -101,6 +101,20 @@ const listPlaces = async( places = [] ) => {
     return id;
 }
 
+const confirm = async(message) => {
+
+    const question = [
+        {
+            type: 'confirm',
+            name: 'ok',
+            message
+        }
+    ];
+
+    const { ok } = await inquirer.prompt(question);
+    return ok;
+}  
+
 const showChecklist = async( tasks = [] ) => {
 
     const choices = tasks.map( (task, i) => {
@@ -125,4 +139,12 @@ const showChecklist = async( tasks = [] ) => {
 
     const { ids } = await inquirer.prompt(questions);
     return ids;
+}
+
+module.exports = {
+    inquirerMenu,
+    pause,
+    ReadInput,
+    listPlaces,
+    co
 }
