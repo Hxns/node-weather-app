@@ -105,8 +105,15 @@ class Searches {
         fs.writeFileSync( this.dbPath, JSON.stringify(payload) );
     }
 
+    readDB() {
 
+        if( !fs.existsSync( this.dbPath ) ) return;
+        
+        const info = fs.readFileSync( this.dbPath, { encoding: 'utf-8' });
+        const data = JSON.parse( info );
 
+        this.record = data.record;
 
+    }
 
 }
