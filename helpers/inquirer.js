@@ -51,7 +51,7 @@ const pause = async() => {
     await inquirer.prompt(question);
 }
 
-const ReadInput = async( message ) => {
+const readInput = async( message ) => {
 
     const question = [
         {
@@ -144,7 +144,7 @@ const showChecklist = async( tasks = [] ) => {
 module.exports = {
     inquirerMenu,
     pause,
-    ReadInput,
+    readInput,
     listPlaces,
     confirm,
     showChecklist

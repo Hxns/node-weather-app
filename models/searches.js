@@ -117,3 +117,5 @@ class Searches {
     }
 
 }
+
+module.exports = Searches;
