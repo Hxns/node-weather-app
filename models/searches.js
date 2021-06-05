@@ -58,6 +58,31 @@ class Searches {
         }
     }
 
-    
+    async weatherPlace( lat, lon ) {
+
+        try {
+            
+            const instance = axios.create({
+                baseURL: `https://api.openweathermap.org/data/2.5/weather`,
+                params: { ...this.paramsWeather, lat, lon }
+            })
+
+            const resp = await instance.get();
+            const { weather, main } = resp.data;
+
+            return {
+                desc: weather[0].description,
+                min: main.temp_min,
+                max: main.temp_max,
+                temp: main.temp
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
+
 
 }
