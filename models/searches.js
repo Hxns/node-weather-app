@@ -3,6 +3,7 @@ const fs = require('fs');
 const axios = require('axios');
 
 class Searches {
+
     record = [];
     dbPath = './db/database.json';
 
@@ -11,8 +12,9 @@ class Searches {
     }
 
     get recordCapitalized(){
-        return this.record.map( place =>{
 
+        return this.record.map( place =>{
+            console.log(place);
             let words = place.split(' ');
             words = words.map( w => w[0].toUpperCase() + w.substring(1) );
 
@@ -39,7 +41,7 @@ class Searches {
     async city( place = '' ) {
 
         try {
-            // Petición http
+            // get http
             const intance = axios.create({
                 baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${ place }.json`,
                 params: this.paramsMapbox
@@ -99,7 +101,7 @@ class Searches {
 
     saveDB() {
         const payload = {
-            record=this.record
+            record: this.record
         };
 
         fs.writeFileSync( this.dbPath, JSON.stringify(payload) );

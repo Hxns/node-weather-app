@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
-
-const colors = require("colors");
+require("colors");
 
 const questions = [
     {
@@ -14,11 +13,11 @@ const questions = [
             },
             {
                 value: 2,
-                name: `${ '1.'.green } Record`
+                name: `${ '2.'.green } Record`
             },
             {  
                 value: 0,
-                name: `${ '1.'.green } Exit`
+                name: `${ '0.'.green } Exit`
             },
         ]
 
@@ -72,6 +71,7 @@ const readInput = async( message ) => {
 }
 
 const listPlaces = async( places = [] ) => {
+    console.log(places);
 
     const choices = places.map( (place, i) => {
 
@@ -116,7 +116,7 @@ const confirm = async(message) => {
 }  
 
 const showChecklist = async( tasks = [] ) => {
-
+    console.log(tasks);
     const choices = tasks.map( (task, i) => {
 
         const idx = `${i + 1}.`.green;

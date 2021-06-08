@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { ReadInput, inquirerMenu, pause, listPlaces} = require('./helpers/inquirer');
+const { readInput, inquirerMenu, pause, listPlaces} = require('./helpers/inquirer');
 const Searches = require('./models/searches');
 
 const main = async() => {
@@ -14,11 +14,11 @@ const main = async() => {
 
         switch( opt ) {
             case 1:
-                const text = await readInput('City');
+                const text =  await readInput('City: ');
 
-                const place = searches.city( text );
+                const places = await searches.city( text );
 
-                const id = await listPlaces(place);
+                const id = await listPlaces(places);
                 if ( id === '0' ) continue;
 
                 const placeSel = places.find( l => l.id === id );
@@ -42,7 +42,7 @@ const main = async() => {
             case 2:
                 searches.recordCapitalized.forEach( (place, i) => {
                     const idx = `${ i + 1 }.`.green;
-                    console.log( `${ idx } ${ lugar } ` );
+                    console.log( `${ idx } ${ place } ` );
                 })
 
             break;
