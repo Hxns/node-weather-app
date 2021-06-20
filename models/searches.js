@@ -8,13 +8,13 @@ class Searches {
     dbPath = './db/database.json';
 
     constructor(){
+        
         this.readDB();
     }
 
     get recordCapitalized(){
 
         return this.record.map( place =>{
-            console.log(place);
             let words = place.split(' ');
             words = words.map( w => w[0].toUpperCase() + w.substring(1) );
 
@@ -26,7 +26,7 @@ class Searches {
         return {
             'access_token': process.env.MAPBOX_KEY,
             'limit': 5,
-            'language': 'es'
+            'language': 'en'
         }
     }
 
@@ -34,7 +34,7 @@ class Searches {
         return {
             appid: process.env.OPENWEATHER_KEY,
             units: 'metric',
-            lang: 'es'
+            lang: 'en'
         }
     }
 

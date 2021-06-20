@@ -71,8 +71,7 @@ const readInput = async( message ) => {
 }
 
 const listPlaces = async( places = [] ) => {
-    console.log(places);
-
+    
     const choices = places.map( (place, i) => {
 
         const idx = `${i + 1}.`.green;
@@ -116,7 +115,7 @@ const confirm = async(message) => {
 }  
 
 const showChecklist = async( tasks = [] ) => {
-    console.log(tasks);
+    
     const choices = tasks.map( (task, i) => {
 
         const idx = `${i + 1}.`.green;
